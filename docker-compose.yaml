@@ -1,0 +1,9 @@
+version: '3'
+services:
+  speedtest:
+    image: xaeroolj/water-flow-manager
+    command:
+      - --device /dev/gpiomem
+    #restart: always
+
+    #environment:
