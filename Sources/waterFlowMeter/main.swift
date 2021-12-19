@@ -9,7 +9,9 @@ func saveLog() {
     print(filePath)
     let url = URL(fileURLWithPath: filePath)
     do {
-        fileManager.createFile(atPath: filePath, contents: nil, attributes: nil)
+        if !fileManager.fileExists(atPath: filePath) {
+            fileManager.createFile(atPath: filePath, contents: nil, attributes: nil)
+        }
         let fileHandle = try FileHandle(forWritingTo: url)
         fileHandle.seekToEndOfFile()
         // convert your string to data or load it from another resource
