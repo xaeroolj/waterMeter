@@ -6,6 +6,7 @@ print("Start")
 func saveLog() {
     let fileManager = FileManager.default
     let filePath = fileManager.currentDirectoryPath.appending("/logFile.txt")
+    print(filePath)
     let url = URL(fileURLWithPath: filePath)
     do {
         let fileHandle = try FileHandle(forWritingTo: url)
@@ -17,8 +18,9 @@ func saveLog() {
         fileHandle.write(textData)
         // close it when done
         fileHandle.closeFile()
+        print("success")
     } catch {
-        
+        print("error")
     }
     
 }
