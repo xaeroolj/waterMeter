@@ -29,11 +29,18 @@ func saveLog() {
 }
 
 let gpios = SwiftyGPIO.GPIOs(for: .RaspberryPiPlusZero)
-var gp = gpios[.P26]!
+var gp26 = gpios[.P26]!
+var gp19 = gpios[.P19]!
+gp26.direction = .IN
+gp26.bounceTime = 0.5
 
-gp.onFalling{
+gp19.direction = .OUT
+gp19.value = 1
+
+gp26.onFalling{
     gpio in
     print("tick")
+    gp19.value = gp19.value == 0 ? 1 : 0
     saveLog()
 }
 RunLoop.main.run()
