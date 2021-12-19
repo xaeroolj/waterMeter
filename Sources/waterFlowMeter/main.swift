@@ -28,6 +28,7 @@ var gp = gpios[.P26]!
 
 gp.onFalling{
     gpio in
+    print("tick")
     saveLog()
 }
 RunLoop.main.run()
