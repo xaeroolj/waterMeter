@@ -31,8 +31,8 @@ func saveLog() {
 let gpios = SwiftyGPIO.GPIOs(for: .RaspberryPiPlusZero)
 var gp26 = gpios[.P26]!
 var gp19 = gpios[.P19]!
-gp26.direction = .IN
-gp26.bounceTime = 0.5
+//gp26.direction = .IN
+//gp26.bounceTime = 0.5
 
 gp19.direction = .OUT
 gp19.value = 1
